@@ -48,3 +48,8 @@ else{
 };
 
 console.log('#Fim Relatório de Cursos')
+
+function limpar(){
+    //  o conteiner que esta com o id resultado ele vai deixar de aparecer usando a propriedade hidden
+    document.getElementById('relatorio').style.visibility = 'hidden';
+};
