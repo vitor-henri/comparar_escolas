@@ -1,55 +1,54 @@
-let ano_atual = new Date()
+let ano_atual = new Date();
 
-class Escolas{
+class Senai {
     codigo;
     cidade;
-    anoFundacao;
-    cursos;
+    anoConstrucao;
+    qtdeCursos;
 
-    constructor(codigo, cidade, ano_fundacao, cursos){
-
+    constructor(codigo, cidade, anoConstrucao, qtdeCursos) {
         this.codigo = codigo;
         this.cidade = cidade;
-        this.ano_fundacao = ano_fundacao;
-        this.cursos = cursos;
-
+        this.anoConstrucao = anoConstrucao;
+        this.qtdeCursos = qtdeCursos;
     }
 
-    descrever_escola(){
+    calcularIdade() {
+        this.idade = parseFloat(ano_atual.getFullYear()) - this.anoConstrucao;
+    }
 
-        console.log(`o código da cidade é ${this.codigo} ela se localiza em ${this.cidade}
-        ela foi fundada em ${this.ano_fundacao} e possui ${parseFloat(ano_atual.getFullYear()) - this.ano_fundacao} anos`);
-
-    };
-};
-
-const escola01 = new Escolas(603, 'Araraquara', 1945, 50);
-const escola02 = new Escolas(715, 'Matão', 1925, 150);
-
-console.log('#Relatório de Cadastro')
-escola01.descrever_escola();
-console.log('');
-escola02.descrever_escola();
-console.log('');
-
-console.log('#Fim Relatório Cadastro\n')
-
-console.log('#Relatorio de Cursos\n')
-if (escola01.cursos > escola02.cursos){
-    console.log(`a escola de ${escola01.cidade} tem ${escola01.cursos} cursos possuindo mais do que a escola de ${escola02.cidade} que tem apenas ${escola02.cursos}`)
+    dadosEscola() {
+        return `O código da escola é ${this.codigo}. Ela se localiza em ${this.cidade}, foi fundada em ${this.anoConstrucao} e possui ${this.idade} anos.`;
+    }
 }
 
-else if(escola02.cursos > escola01.cursos){
-    console.log(`a escola de ${escola02.cidade} tem ${escola01.cursos} cursos possuindo mais do que a escola de ${escola01.cidade} que tem apenas ${escola01.cursos}`)
+function compararEscolas() {
+    // Pegando os valores dos inputs dentro da função
+    const codigo = document.getElementById('codigo-escola').value;
+    const cidade = document.getElementById('cidade-escola').value;
+    const ano = parseInt(document.getElementById('ano-escola').value);
+    const cursos = parseInt(document.getElementById('cursos-escola').value);
+
+    const codigo2 = document.getElementById('codigo-escola2').value;
+    const cidade2 = document.getElementById('cidade-escola2').value;
+    const ano2 = parseInt(document.getElementById('ano-escola2').value);
+    const cursos2 = parseInt(document.getElementById('cursos-escola2').value);
+
+    const escola01 = new Senai(codigo, cidade, ano, cursos);
+    const escola02 = new Senai(codigo2, cidade2, ano2, cursos2);
+
+    // Comparando as escolas
+    if (escola01.qtdeCursos > escola02.qtdeCursos){
+        document.getElementById('resultText').textContent = `A escola de ${escola01.cidade} tem ${escola01.qtdeCursos} cursos, possuindo mais do que a escola de ${escola02.cidade} que tem apenas ${escola02.qtdeCursos}.`;
+    }
+    else if (escola02.qtdeCursos > escola01.qtdeCursos){
+        document.getElementById('resultText').textContent = `A escola de ${escola02.cidade} tem ${escola02.qtdeCursos} cursos, possuindo mais do que a escola de ${escola01.cidade} que tem apenas ${escola01.qtdeCursos}.`;
+    }
+    else{
+        document.getElementById('resultText').textContent = `As escolas de ${escola01.cidade} e ${escola02.cidade} possuem a mesma quantidade de cursos.`;
+    }
 }
 
-else{
-    console.log(`a escola de SENAI ${escola01.cidade} tem a mesma quantidade de cursos que a escola de SENAI ${escola02.cidade}\n`)
-};
-
-console.log('#Fim Relatório de Cursos')
-
-function limpar(){
-    //  o conteiner que esta com o id resultado ele vai deixar de aparecer usando a propriedade hidden
-    document.getElementById('relatorio').style.visibility = 'hidden';
-};
+function limparRelatorio() {
+    document.getElementById('resultText').textContent = '';
+}

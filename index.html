@@ -11,23 +11,28 @@
 <body>
     <section class="container-main">
         <section class="sec-site">
+            <!-- cabeçalho -->
             <header class="cabecalho">
                 <h1>Comparar Escolas SENAI</h1>
             </header>
-            
+            <hr>
             <!-- escola 01 -->
             <section class="escola-01">
                 <div class="corpo">
                     <h2 class="sub-titulo">Insira os dados da escola</h2>
                     <h3>Escola 1</h3>
                     <label for="codigo-escola">Código da escola:</label>
-                    <input type="number" name="codigo-escola"  placeholder="Digite o Código da escola" step="1" required>
+                    <input type="number" id="codigo-escola" placeholder="Digite o Código da escola" step="1" required>
+
                     <label for="cidade-escola">Cidade da escola:</label>
-                    <input type="text" name="cidade-escola" placeholder="Digite a cidade da escola" required>
+                    <input type="text" id="cidade-escola" placeholder="Digite a cidade da escola" required>
+
                     <label for="ano-escola">Ano de construção:</label>
-                    <input type="number" name="ano-escola" placeholder="Digite o Ano de Construção da escola" required>
+                    <input type="number" id="ano-escola" placeholder="Digite o Ano de Construção da escola" required>
+
                     <label for="cursos-escola">Quantidade de cursos:</label>
-                    <input type="number" name="cursos-escola" placeholder="Digite a Quantidade de cursos da escola" required>
+                    <input type="number" id="cursos-escola" placeholder="Digite a Quantidade de cursos da escola" required>
+
                 </div>
             </section>
 
@@ -36,33 +41,34 @@
                 <div class="corpo">
                         <h3>Escola 2</h3>
                         <label for="codigo-escola">Código da escola:</label>
-                        <input type="number" name="codigo-escola"  placeholder="Digite o Código da escola" step="1" required>
+                        <input type="number" id="codigo-escola2" placeholder="Digite o Código da escola" step="1" required>
+
                         <label for="cidade-escola">Cidade da escola:</label>
-                        <input type="text" name="cidade-escola" placeholder="Digite a cidade da escola" required>
+                        <input type="text" id="cidade-escola2" placeholder="Digite a cidade da escola" required>
+
                         <label for="ano-escola">Ano de construção:</label>
-                        <input type="number" name="ano-escola" placeholder="Digite o Ano de Construção da escola" required>
+                        <input type="number" id="ano-escola2" placeholder="Digite o Ano de Construção da escola" required>
+
                         <label for="cursos-escola">Quantidade de cursos:</label>
-                        <input type="number" name="cursos-escola" placeholder="Digite a Quantidade de cursos da escola" required>
+                        <input type="number" id="cursos-escola2" placeholder="Digite a Quantidade de cursos da escola" required>
+
                 </div>
             </section>
 
+            <!-- Seção dos botões -->
             <section class="sec-botoes">
-                <button class="botao-relatorio">
+                <button type="button" class="botao-relatorio" onclick="compararEscolas()">
                     Gerar Relatório
                 </button>
-                <button class="botao-limpar">
+                <button type="button" class="botao-limpar" onclick="limparRelatorio()">
                     Limpar Relatório
                 </button>
             </section>
 
+
+            <!-- seção relatorio -->
             <section class="relatorio">
-                <ul>
-                    <li>Memória de Calculo</li>
-                    <li>Operação: <span>SOMA</span> </li>
-                    <li>Valor 01 digitado pelo usuário: <span> ${v1} </span> </li>
-                    <li>Valor 02 digitado pelo usuário: <span>${v2}</span> </li>       
-                    <li>O resultado da operação é ${v1} + ${v2} = <span>${v1 + v2}</span> </li>
-                </ul>
+                <p id="resultText"></p>
             </section>
         </section>
     </section>
