@@ -10,13 +10,51 @@
 </head>
 <body>
     <section class="container-main">
-        <header class="cabecalho">
-            <h1 class="titulo">Comparar Escolas SENAI</h1>
-        </header>
-        <main class="corpo">
-            <h2 class="sub-titulo">Insira os dados das escolas</h2>
-            <h3 class="escola-1">Escola 1</h3>
-        </main>
+        <section class="sec-site">
+            <header class="cabecalho">
+                <h1>Comparar Escolas SENAI</h1>
+            </header>
+            
+            <!-- escola 01 -->
+            <section class="escola-01">
+                <div class="corpo">
+                    <h2 class="sub-titulo">Insira os dados da escola</h2>
+                    <h3>Escola 1</h3>
+                    <label for="codigo-escola">Código da escola:</label>
+                    <input type="number" name="codigo-escola"  placeholder="Digite o Código da escola" step="1" required>
+                    <label for="cidade-escola">Cidade da escola:</label>
+                    <input type="text" name="cidade-escola" placeholder="Digite a cidade da escola" required>
+                    <label for="ano-escola">Ano de construção:</label>
+                    <input type="number" name="ano-escola" placeholder="Digite o Ano de Construção da escola" required>
+                    <label for="cursos-escola">Quantidade de cursos:</label>
+                    <input type="number" name="cursos-escola" placeholder="Digite a Quantidade de cursos da escola" required>
+                </div>
+            </section>
+
+            <!-- escola 02 -->
+            <section class="escola-02">
+                <div class="corpo">
+                        <h3>Escola 2</h3>
+                        <label for="codigo-escola">Código da escola:</label>
+                        <input type="number" name="codigo-escola"  placeholder="Digite o Código da escola" step="1" required>
+                        <label for="cidade-escola">Cidade da escola:</label>
+                        <input type="text" name="cidade-escola" placeholder="Digite a cidade da escola" required>
+                        <label for="ano-escola">Ano de construção:</label>
+                        <input type="number" name="ano-escola" placeholder="Digite o Ano de Construção da escola" required>
+                        <label for="cursos-escola">Quantidade de cursos:</label>
+                        <input type="number" name="cursos-escola" placeholder="Digite a Quantidade de cursos da escola" required>
+                </div>
+            </section>
+
+            <section class="sec-botoes">
+                <button class="botao-relatorio">
+                    Gerar Relatório
+                </button>
+                <button class="botao-limpar">
+                    Limpar Relatório
+                </button>
+            </section>
+        </section>
     </section>
 </body>
 </html>
